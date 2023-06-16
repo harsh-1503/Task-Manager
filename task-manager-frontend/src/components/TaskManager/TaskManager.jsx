@@ -35,6 +35,7 @@ const TaskManager = () => {
     event.preventDefault();
 
     const addnewtask = await axios.post('https://task-manager-backend-ogvv.onrender.com/api/v1/tasks/', { "task": newTask,"completed":false })
+    setNewTask('')
     // if (newTask.trim() !== '') {
     //   setTasks([...tasks, newTask]);
     //   setNewTask('');

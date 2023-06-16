@@ -11,7 +11,7 @@ const TaskManager = () => {
 
 
   const geteachtask = async () => {
-    const getTasks = await fetch('http://localhost:5000/api/v1/tasks/');
+    const getTasks = await fetch('https://task-manager-backend-ogvv.onrender.com/api/v1/tasks/');
     const json = await getTasks.json();
     console.log('Fetched Data');
     console.log(json);
@@ -34,7 +34,7 @@ const TaskManager = () => {
   const handleTaskSubmit = async (event) => {
     event.preventDefault();
 
-    const addnewtask = await axios.post('http://localhost:5000/api/v1/tasks/', { "task": newTask,"completed":false })
+    const addnewtask = await axios.post('https://task-manager-backend-ogvv.onrender.com/api/v1/tasks/', { "task": newTask,"completed":false })
     // if (newTask.trim() !== '') {
     //   setTasks([...tasks, newTask]);
     //   setNewTask('');
@@ -43,12 +43,12 @@ const TaskManager = () => {
   // const [editable, seteditable] = useState(false)
   const handleTaskDelete = async (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
-    const deletingTask = await axios.delete(`http://localhost:5000/api/v1/tasks/${index}`)
+    const deletingTask = await axios.delete(`https://task-manager-backend-ogvv.onrender.com/api/v1/tasks/${index}`)
     setTasks(updatedTasks);
   };
 
   const handleCheckBox=async(e,index)=>{
-    const updateCheck =await axios.patch(`http://localhost:5000/api/v1/tasks/${index}/${e}`)
+    const updateCheck =await axios.patch(`https://task-manager-backend-ogvv.onrender.com/api/v1/tasks/${index}/${e}`)
   }
   // const editSave = 
   return (
